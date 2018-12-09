@@ -1,0 +1,27 @@
+<div class="admin-container" [class.admin-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="admin-toolbar">
+    <button *ngIf="sidebarList" mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    Olib-Admin
+    <!-- HEADER -->
+    <olib-header [headerList]="headerList" (headerEmitter)="selectedHeader($event)"></olib-header>
+
+    <span class="admin-fill-remaining-space"></span>
+    <span> 
+      <mat-icon class="cursor" routerLink="/login">logout</mat-icon>
+    </span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="admin-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="sidebarList" >
+      <!-- SIDEBAR -->
+      <olib-sidebar [sidebarList]="sidebarList"></olib-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <!-- CONTENTS -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

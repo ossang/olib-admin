@@ -1,0 +1,4 @@
+  <h1 *ngFor="let header of headerList" (click)="selectHeader(header)" class="admin-app-name">
+      <mat-icon *ngIf="header.icon" class="header-icon">{{header.icon}}</mat-icon> 
+      <span>{{header.title}}</span>
+  </h1>

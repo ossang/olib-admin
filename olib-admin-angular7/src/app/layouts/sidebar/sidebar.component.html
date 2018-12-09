@@ -1,0 +1,5 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="{{sidebar.url}}" *ngFor="let sidebar of sidebarList">
+        <mat-icon class="sidenav-icon">{{sidebar.icon}}</mat-icon> {{sidebar.title}}
+    </a>
+</mat-nav-list>

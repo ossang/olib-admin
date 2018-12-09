@@ -1,0 +1,32 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+.admin-is-mobile .admin-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+
+.admin-sidenav-container {
+  flex: 1;
+}
+
+.admin-is-mobile .admin-sidenav-container {
+  flex: 1 0 auto;
+}
+
+.admin-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+mat-sidenav{
+  background-color: #fafafa;
+  box-shadow: 6px 0 6px rgba(0,0,0,.1);
+}
