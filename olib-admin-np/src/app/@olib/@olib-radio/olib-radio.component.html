@@ -1,0 +1,3 @@
+<nb-radio-group [name]="config.groupName" [(value)]="config.value" >
+    <nb-radio class="col-sm-1" *ngFor="let option of config.options" [value]="option.value" style="display: contents;" [disabled]="option.disabled" >{{option.label}} </nb-radio>
+</nb-radio-group>

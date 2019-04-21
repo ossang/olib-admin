@@ -1,0 +1,247 @@
+.nb-theme-corporate nb-radio {
+    label {
+        height: 34px;
+        padding: 8.5px 21px 7px 0 !important;
+        line-height: 1.4;
+    }
+    .radio-indicator {background: #fff !important;}
+    input:checked + .radio-indicator::before, 
+    input:disabled:checked + .radio-indicator::before {
+        background-color: #88afff;
+        border: solid #88afff;
+    }
+    input:checked + .radio-indicator, 
+    input:hover:not(:disabled) + .radio-indicator {
+        border-color: #88afff;
+    }
+}
+
+p-dropdown,
+p-calendar {
+    .ui-dropdown {
+        border-radius: 0;
+        border-color: #dadfe6;
+        color: #dadfe6;
+        label {
+            height: 32px;
+            padding-left: 10px;
+            line-height: 20px;
+        }
+    }
+    .ui-inputtext:enabled:hover:not(.ui-state-error),
+    .ui-dropdown:not(.ui-state-disabled):hover {
+        border-color:#dadfe6 !important;
+    }
+    .ui-inputtext:enabled:focus:not(.ui-state-error),
+    .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+        border-color:#5dcfe3 !important;
+    }
+}
+
+p-calendar {
+    .ui-datepicker {
+        input {border-color: #dadfe6;}
+        table td > a.ui-state-active,
+        table td.ui-datepicker-today a.ui-state-active {
+            background-color: #73a1ff;
+        }
+    }
+    &.datepicker {
+        &.p_input200 .ui-calendar input {width: 166px;} // 년월일 시간 ex> 2019년 1월 1일 00:00
+        .ui-calendar input{
+            width: 306px;
+            text-align: left;
+            border-color: #dadfe6;
+        }
+        .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+            width: 34px;
+            height: 34px;
+            background: #fff;
+            border-color: #dadfe6;
+            border-left: 1px solid #dadfe6;
+            &:hover {
+                background-color: #88afff !important;
+                border : 1px solid #88afff !important;
+                span {color: #fff !important;}
+            }
+        }
+        .ui-button-icon-only .ui-button-icon-left {
+            color: #ccc;
+            font-size: 15px;
+        }
+    }
+}
+
+p-checkbox,
+p-tablecheckbox,
+p-tableheadercheckbox {
+    .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {border-color: #87aeff !important;}
+    .ui-chkbox .ui-chkbox-box.ui-state-active {background-color: #87aeff !important;border-color: #87aeff !important;}
+    .ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {background-color: #87aeff;}
+    .ui-chkbox .ui-chkbox-box.ui-state-focus {border-color: #a6a6a6 !important;box-shadow: none !important;}
+}
+
+p-paginator {
+    .ui-paginator-bottom {padding: 1.5rem 0;}
+    .ui-paginator {
+        background: #fff;
+        .ui-paginator-pages .ui-paginator-page,
+        .ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last {border: 1px solid #ddd;}
+        .ui-paginator-prev, .ui-paginator-last {border-left: 0;}
+        .ui-paginator-pages .ui-paginator-page.ui-state-active {background-color: #73a1ff;}
+    }
+}
+
+p-inputswitch {
+    .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider,
+    .ui-inputswitch.ui-inputswitch-checked:not(.ui-state-disabled):hover .ui-inputswitch-slider,
+    .ui-inputswitch.ui-inputswitch-checked.ui-inputswitch-focus .ui-inputswitch-slider {background-color: #5dcfe3;}
+}
+
+p-table {
+    .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight,
+    .ui-table .ui-table-tbody > tr.ui-contextmenu-selected, 
+    .ui-table .ui-table-tbody > tr.ui-state-highlight {
+        background-color: #e6f3ff;
+        color: #333;
+    }
+    .ui-table .ui-sortable-column .ui-sortable-column-icon {vertical-align: middle}
+    .ui-table .ui-sortable-column.ui-state-highlight {
+        // background-color: #e6f3ff;
+        color: #333;
+    }
+    .ui-table .ui-sortable-column.ui-state-highlight .ui-sortable-column-icon {
+        color: #73a1ff;
+    }
+    .ui-table .ui-table-caption, 
+    .ui-table .ui-table-summary {
+        background-color: white;
+        text-align: left;
+    }
+}
+
+p-dialog {
+    .ui-dialog {
+        .ui-dialog-titlebar {
+            padding: 1em;
+            background-color: #000;
+            color: #fff;
+            border: 0;
+        }
+        .ui-dialog-titlebar-icon span {font-size: 20px;color: #fff;} // 상단, X 버튼
+        .ui-dialog-content {
+            padding: 1em;
+            .search_area {padding: 0 1.25rem;}
+            .search_result {padding: 0 1.25rem;}
+            .form_section {margin: -10px 0;padding: 0 10px;}
+            .btn_area {padding: 10px 0;}
+        }
+        .ui-dialog-footer {
+            background-color: #ddd;
+            border-color: #ddd;
+        }
+        .btn_close {
+            background-color: #000;
+            border-color: #000;
+            color: #fff;
+            &:hover, &.active {
+                background-color: #333;
+                border-color: #333;
+            }
+        }
+    }
+}
+
+.c_ptap p-tabview {
+    .ui-tabview {
+        padding: 0;
+        .ui-tabview-panels {
+            padding: 15px 0;
+            border: 0;
+            border-top: 1px solid #c8c8c8;
+        }
+        &.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+            background-color: #dbdbdb;
+            border:0;
+        }
+        &.ui-tabview-top .ui-tabview-nav {
+            margin-bottom: 0;
+            li {
+                margin-right: 0;
+                border:0;
+                background-color: #fff;
+                &:hover {border:0;}
+                a {
+                    padding: 15px 20px;
+                }
+                &.ui-state-active {
+                    background-color: #73a1ff;
+                    border:0;
+                    &:hover{
+                        background-color: #73a1ff;
+                        border:0;
+                    }
+                }
+            }
+        }
+    }
+    .ui-corner-top {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.c_accordion {
+    margin-bottom: 10px;
+    p-accordion .ui-accordion {
+        position: relative;
+        .ui-accordion-header {
+            margin-bottom: 0;
+            a {
+                height: 74px;
+                padding: 20px 35px;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: bold;
+                background-color: #fff;
+                outline: none;
+                border: 1px solid #d5dbe0;
+                color: #4d5159;
+                &:hover {
+                    background-color: #fff !important;
+                    text-decoration: none;
+                }
+                .ui-accordion-toggle-icon {
+                    position: absolute;
+                    top: 20px;right: 35px;
+                    width: 34px;
+                    height: 34px;
+                    padding: 7px;
+                    border: 1px solid #ddd;
+                }
+            }
+        }
+        .ui-accordion-header:not(.ui-state-disabled).ui-state-active a {
+            border: 1px solid #d5dbe0;background-color: #fff;color: #4d5159;        
+        }
+        .ui-accordion-header:not(.ui-state-disabled).ui-state-active:hover a {
+            border: 1px solid #d5dbe0;background-color: #fff;color: #4d5159;
+        }
+        .ui-accordion-header:not(.ui-state-active):not(.ui-state-disabled):hover a {color: #4d5159;}
+        .ui-accordion-header:not(.ui-state-disabled).ui-state-active a .ui-accordion-toggle-icon {color: #4d5159 !important;}
+        .ui-accordion-content {
+            border: 1px solid #d5dbe0;border-top: 0;padding: 0;
+            .form_section {padding: 0 35px;}
+        }
+    }
+    .check_box { // 항상열기 .check_box
+        position: absolute;top: 26px;right: 90px;
+    }
+}
+
+// nb-dialog-container
+nb-dialog-container {font-family: 'Nanum Gothic', sans-serif !important;}
+nb-dialog-container nb-card {border: 0 !important;}
+nb-dialog-container nb-card-header {padding:1em !important;font-size:12px !important;line-height:20px;border-top-left-radius:3px !important;
+    border-top-right-radius: 3px !important;}
+nb-dialog-container nb-card-footer {padding: 0.571em 1em !important;border: 1px solid #c8c8c8;}

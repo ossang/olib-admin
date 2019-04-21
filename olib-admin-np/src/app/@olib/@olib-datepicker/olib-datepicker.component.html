@@ -1,0 +1,13 @@
+<p-calendar 
+(click)="selectedDate($event)" 
+[(ngModel)]="rangeDates" 
+selectionMode="range" 
+[readonlyInput]="true" 
+dateFormat="yy년 MM dd일 "
+[locale]="kr" 
+[showIcon]="false"
+[showTime]="showTime" 
+class="datepicker"
+[inputStyle]="{'width':'340px'}"
+>
+</p-calendar>

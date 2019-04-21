@@ -1,0 +1,26 @@
+nb-layout .layout,
+nb-layout .layout nb-layout-header,
+nb-user .user-name,
+nb-tabset .tabset,
+nb-tabset nb-tab,
+nb-actions,
+nb-menu,
+nb-card-header,
+button, label, input, select, textarea, strong, table,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Nanum Gothic', sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {color: #4b4b4b !important;}
+body .ui-widget {font-family: 'Nanum Gothic', sans-serif;font-size: 12px;line-height: 20px;}
+
+nb-tabset nb-tab,
+.nb-theme-corporate nb-card,
+label, input, select, textarea,
+input::placeholder {font-size: 12px !important;line-height: 1.6;}
+
+textarea::placeholder {font-size: 12px !important;line-height: 1.8;}
+
+nb-tabset .tabset {font-size: 14px !important;}
+
+.fs12 {font-size: 12px !important;line-height: 18px;}
+.fs13 {font-size: 13px !important;line-height: 20px;}

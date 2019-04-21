@@ -1,0 +1,535 @@
+// reset css
+ul {padding-left: 0 !important;margin-bottom: 0;list-style: none;}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// input 자동완성 영역 초기화
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+    background-color: #fff !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #555 !important;
+}
+input[type='text'], 
+input[type='number'],
+input[type='email'], 
+input[type='password']  {
+    height: 34px !important;
+    padding: 4px 10px !important;
+    border-width: 1px !important;
+    border-radius: 0 !important;
+    color: #4d5159 !important;
+}
+input.c_input {width: 400px;}
+input:read-only.form-control-plaintext {
+    padding: 4px 0 !important;
+    border: 0 !important;
+    color: #4b4b4b !important;
+}
+.nb-theme-corporate .input-group-addon:disabled, 
+.nb-theme-corporate .form-control:disabled {
+    background-color: #ddd; 
+}
+textarea {padding:4px 10px !important;border-width: 1px !important;border-radius: 0 !important;}
+
+// button
+button {border-radius: 0 !important;cursor: pointer !important;text-transform: none !important;outline: none !important;}
+button.btn-xsmall {height: 34px;} //기본 X-Small 버튼
+button[type="button"].btn-disabled {cursor: not-allowed !important;}
+.btn_xs {
+    button {
+        margin-right: 5px;
+        &:last-child {margin-right: 0;}
+    }
+}
+.btn_mr5 {margin-right: 5px;}
+.btn_img {padding: 0;border: 0;background: #fff;vertical-align: text-top;}
+.btn_area {text-align: center;padding: 20px 0;}
+.btn_remove {
+    margin-left: 5px;
+    padding: 2px;
+    border: 0;
+    background-color: #333;
+    i {
+        color: #fff;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+}
+.btn_period {
+    position: absolute;
+    top: 15px;left: 350px;
+    button {
+        width: 45px;
+        height: 34px;
+        margin-left: 5px;
+        background: #f1f5f8;
+        border: 1px solid #c8c8c8;
+    }
+}
+body .ui-button { // PrimeNG 버튼 칼라 custom
+    background-color: #5dcfe3;
+    border : 1px solid #5dcfe3;
+}
+
+// form - add / detail / edit
+.form_section {
+    padding: 20px 35px;
+    .form_sub {
+        margin: 0;
+        padding: 15px 0;
+        border-top: 1px solid #ddd;
+        &:first-child {border-top: 0;}
+        .col-form-label {padding: 8px 0 8px !important;}
+    }
+    span.form-control-plaintext {
+        padding: 7px 0 !important;
+        color: #4b4b4b;
+    }
+}
+
+// table
+body .ui-table .ui-table-thead > tr > th {background-color: #f8f9fd !important;}
+table thead th,
+table tbody td {word-break: keep-all;word-wrap: break-word;}
+.table-bordered thead th {border-bottom-width: 1px;}
+.table_bg {
+    thead th {vertical-align: middle;}
+    th {
+        background-color: #f2f2f2;
+        vertical-align: middle;
+        label {
+            margin-bottom: 0;
+        }
+    }
+    td {vertical-align: middle;}
+}
+
+// [포인트 지급 상세내역] only
+.type_ptable__td {
+    .row {
+        border: 1px solid #c8c8c8;
+        border-top: 0;
+        div {
+            padding: 0.571em 0.857em;
+            border-left: 1px solid #c8c8c8;
+            &:nth-child(1) {
+                border-left: 0;
+            }
+        }
+    }
+}
+
+.table_th {
+    display: table-cell;
+    height: 34px;
+    padding: 0.571em 0.857em;
+    border-left: 1px solid #c8c8c8;
+    vertical-align: middle;
+    &:nth-child(1) {
+        border-left: 0;
+    }
+    &__row {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        background-color: #f8f9fd;
+        border: 1px solid #c8c8c8;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+.table_td {
+    display: table-cell;
+    padding: 0.571em 0.857em;
+    border-left: 1px solid #c8c8c8;
+    &:nth-child(1) {
+        border-left: 0;
+    }
+    &__row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid #c8c8c8;
+    border-top: 0;
+    text-align: center;
+    }
+}
+
+// tooltip
+.c_tooltip {
+    width: 20px;height: 20px;margin-left: 7px;border-radius: 20px !important;padding: 0 !important;
+    &_contents {
+        font-family: 'Nanum Gothic', sans-serif;
+        padding: 10px;font-size: 12px;line-height: 24px;
+        color: #666;
+        ul{
+            padding-left: 0 !important;
+            margin-bottom: 0;
+        }
+        ol {
+            margin-bottom: 0;
+        }
+        .icon_info {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            padding: 2px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+    }
+}
+
+// p-fileupload -custom : add img or file
+.custom_file {
+    position: relative;
+    img {width: 140px;}
+    .ui-fileupload-row {
+        > div {
+            display: block;
+            padding: 0;
+            &:first-child {height: 140px;overflow: hidden;}
+            &:nth-child(2), &:nth-child(3) {
+                position: absolute;
+                width: 104px;height: 18px;
+                padding-left: 10px;
+                background-color: #ddd;opacity: 0.7;
+                line-height: 1.5;
+                @extend %text-ellipsis;
+            }
+            &:nth-child(2) {bottom: 33px;}
+            &:nth-child(3) {bottom: 15px;}
+        }
+    }
+    .ui-progressbar {display: none;}
+    .ui-fileupload {
+        .ui-fileupload-content {position: absolute;top: 0;padding: 0;border: 0;}
+        .ui-fileupload-buttonbar {
+            background-color: #fff;
+            padding: 0;
+            border: 0;
+            .ui-button:before {
+                position: absolute;
+                top: 40px;left: 50%;margin-left: -30px;
+                display: block;
+                content: "+";
+                width: 60px;height: 60px;
+                font-size: 60px;line-height: 47px;
+                text-align: center;
+                color: #ddd;
+            }
+        }
+        &-files {display: block;width: 140px;height: 155px;background-color: #fff;}
+        &-choose:hover {background-color: #fff !important;border-color: #000;color: #ddd;}    
+    }
+    .ui-button {
+        position: relative;
+        width: 140px;height: 140px;
+        background-color: #fff;
+        border: 1px dashed #ddd;
+        color: #ddd;
+        border-color: #ddd !important;
+        &.ui-button-icon-only {
+            position: absolute;right: 0;bottom: 15px;
+            width: 36px !important;height: 36px;background: #ddd;color: #333;border-radius: 0;opacity: 0.7;
+            .ui-button-icon-left {font-size: 22px;}
+            &:hover {border:1px solid #ddd;background: #ddd !important;color: #333 !important;}
+        }
+        &-text-icon-left {
+            .ui-button-icon-left,
+            .ui-button-text {display: none;}
+        }
+    }
+    .upload_edit {
+        position: absolute;top: 105px;
+        width: 140px;margin: 0;padding: 0 36px 0 9px;
+        background-color: #ddd;opacity: 0.7;
+        @extend %text-ellipsis;
+        .ui-button.ui-button-icon-only {padding: 6px 0;bottom:0;font-size: 22px;opacity: 1;border:0;}
+        .ui-button.ui-button-icon-only:before {font-family: 'primeicons';content: "\e90b";}
+    }
+    .img_edit {height: 140px;overflow: hidden;}
+    .ui-messages.ui-messages-error {
+        width: 140px;height: 140px;margin: 0;
+        .ui-messages-icon {display: none;}
+        .ui-messages-close {top: 104px;right: 0;width: 36px;height: 36px;padding: 8px 0;text-align: center;color: #333;}
+    }
+    &.event_img {
+        img {width: 230px;}
+        .ui-button {width: 230px;}
+        .ui-fileupload .ui-fileupload-content {width: 230px;}
+        .ui-fileupload-row > div:nth-child(2), 
+        .ui-fileupload-row > div:nth-child(3) {width: 194px;}
+    }
+    &__excel {
+        p-progressbar {display: none;}
+        .ui-fileupload .ui-fileupload-buttonbar {
+            background-color: #fff;
+            padding: 0;
+            border: 0;
+        }
+        .ui-button-text-icon-left .ui-button-text {
+            height: 34px;
+            padding: 0 1em 0 2.1em !important;
+            line-height: 34px;
+        }
+        .ui-corner-all {border-radius: 0;}
+        .ui-fileupload .ui-fileupload-content {
+            padding: 0;
+            border: 0;
+        }
+        .ui-fileupload-row > div {
+            &:first-child {padding: 0;}
+            &:nth-child(2) {padding-left: 0;}
+        }
+        .ui-fileupload-choose:not(.ui-state-disabled):hover {
+            background-color: #5dcfe3;
+            border : 1px solid #5dcfe3;
+        }
+    }
+}
+
+.content {
+    .page_title {
+        font-size: 20px;
+        line-height: 1.3;
+        .c_tooltip {
+            position: absolute;
+            top: 20px;
+        }    
+    }
+    .line_title {
+        display: block;
+        padding: 1.25rem 0 1.25rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #ddd;
+        font-size: 15px;
+        &::after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+    } 
+}
+
+.search_area {
+    th {
+        label {
+            margin-bottom: 0;
+        }
+    }
+    padding: 1.25rem 2.5rem;
+    background-color: #f8f9fd;
+    .table {
+        margin-bottom: 0;
+        td {
+            padding: 15px 0 15px 10px;
+            vertical-align: middle;
+        }
+        th {
+            padding: 15px 0;
+            vertical-align: middle;
+            color: #777;
+            font-weight: normal;
+        }
+        tr:first-child th,
+        tr:first-child td {
+            border-top: none;
+        }
+        .type_select label {
+            height: 30px;
+            padding: 0 10px;
+            line-height: 30px;
+        }
+    }
+}
+
+.search_result {
+    padding: 1.25rem 2.5rem;
+    .count {
+        display: block;
+        padding: 1.25rem 0 1.25rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #ddd;
+        font-size: 15px;
+        &::after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+    }
+    td {word-break: break-all;}
+    .ui-dropdown .ui-dropdown-label {width: 70px;} // 리스트 개수 선택 영역
+}
+
+.cursor {cursor: pointer;}
+span.cursor {color: #73a1ff;cursor: pointer;border-bottom: 1px solid #73a1ff;}
+.break_all {word-break: break-all;}
+%text-ellipsis {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;} // 말줄임
+.color_strong {color: #73a1ff;}
+.color_required {
+    color: #ff6b83;
+    li {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+.tip_noti {
+    position: relative;
+    padding-left: 90px;
+    span {
+        position: absolute;left: 0;top: -4px;
+        display: inline-block;padding: 3px 5px;color: #fff;background-color: #ff8196;}
+}
+
+.info_box {
+    line-height: 2;
+    background-color: #ddd;
+    ul {
+        margin: 1rem;
+        padding-left: 0 !important;
+    }
+}
+
+.dialog_tit {
+    display: block;
+    padding-bottom: 0.4em;
+    * {vertical-align: middle;}
+    span {padding-left: 3px;}
+    &.tit_bb {
+        border-bottom: 1px solid #999;
+        margin-bottom: 10px;
+    }
+}
+
+.register_area {margin-bottom: 90px;}
+.fixed_area {
+    position: fixed;bottom: 0;width: 100%;height: 70px;margin:0 -255px;padding: 12px 41.5px;background-color: #ecedef;border-top: 1px solid #d9d9d9;z-index: 999;
+    button {
+        min-width: 110px;height: 46px;border-radius: 0 !important;font-size: 14px;
+    }
+}
+
+.two_field {
+    margin: -9px 0;
+    li {
+        display: table;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+        &:first-child {border-top: 0;}
+        > div {
+            display: table-cell;
+            width: calc(100% - 170px);
+        }
+    }
+    &__tit {
+        display: table-cell;
+        width: 170px;
+    }
+}
+
+.memo_area {
+    textarea {
+        float: left;
+        width: calc(100% - 80px);
+        padding: 10px;
+        resize: none;
+        border: 0;
+    }
+    button {
+        float: right;
+        width: 80px;
+        height: 68px;
+    }
+}
+
+// 삭제 버튼 있는 리스트
+.list_rm {
+    ul {
+        height: 120px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        margin-bottom: 0;
+        padding: 0 !important;
+        li {
+            position: relative;
+            padding: 7px 10px;
+            &:hover {background:#eaeaea;}
+            span {
+                vertical-align: middle;
+            }
+        }
+        .btn_remove {
+            position: absolute;
+            right: 10px;top: 7px;
+        }
+    }
+}
+
+// 댓글
+.comment_area {
+    .sub_title {display: block;padding: 10px 0;font-size: 20px;border-bottom: 2px solid #2c2b2b;}
+    .ui-table .ui-table-tbody > tr > td {border: 0;}
+    .ui-paginator {border: 0;}
+    .comment_table {
+        table-layout: fixed;
+        margin-bottom: 15px;
+        color: #666;
+        tr {
+            border-bottom: 1px solid #dee2e6;
+            td {
+                padding: 12px 0;
+                vertical-align: top;
+            }
+        }
+    }
+    .btn_reply {
+        padding: 3px 3px 2px;
+        font-size: 11px;background: #5b5b5b;
+        border: 0;color: #fff;
+    }
+    .btn_rm {
+        margin-right: 10.5px;
+    }
+    .user_name {
+        position: relative;
+        display: inline-block;
+        padding: 0 7px;
+        font-weight: bold;
+        vertical-align: top;
+        &:before {
+            position: absolute;
+            left: 0;
+            display: block;
+            content: "["
+        }
+        &:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            content: "]"
+        }
+    }
+    .date {margin: 0 10px;}
+    .user_comment {padding-top: 3px;word-break: break-all;line-height: 20px;}
+    .txt_re {margin-right: 5px;color: #f0515c;}
+    .rereply {padding-left:20px;}
+    .inner_reply {
+        th {padding: 0.75rem !important;}
+        td {padding: 0.75rem !important;}
+    }
+}
