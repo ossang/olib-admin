@@ -1,13 +1,17 @@
 <p-calendar 
 (click)="selectedDate($event)" 
 [(ngModel)]="rangeDates" 
-selectionMode="range" 
-[readonlyInput]="true" 
+[selectionMode]="mode" 
+[readonlyInput]="true"
+[showTime]="showTime" 
 dateFormat="yy년 MM dd일 "
 [locale]="kr" 
-[showIcon]="false"
-[showTime]="showTime" 
+[showIcon]="true" 
+icon="far fa-calendar-alt"
 class="datepicker"
-[inputStyle]="{'width':'340px'}"
+[inputStyle]="style"
+[monthNavigator]="true"
+[yearNavigator]="true"
+yearRange="1950:2030"
 >
 </p-calendar>

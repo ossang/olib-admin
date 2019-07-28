@@ -1,0 +1,26 @@
+<div class="custom_file">
+    <p-fileUpload 
+      #olibfile 
+      [withCredentials]="config.$credentials" 
+      name="file" 
+      [url]="config.$url"
+      (onUpload)="onUpload($event)" 
+      (onBeforeSend)="onBeforeSend($event)" 
+      [accept]="config.$accept" 
+      [maxFileSize]="config.$maxFileSize"
+      styleClass="filebox" 
+      [showUploadButton]="false"
+      [showCancelButton]="false">
+
+      <ng-template pTemplate="content">
+        <div *ngIf="file" class="img_edit">
+          <img *ngIf="file" [src]="file.$filePath" style="width: 140px;">
+        </div>
+
+        <div *ngIf="file" class="upload_edit fs12">
+          {{file.$viewFileName}}<br /> {{file.$fileSize}}
+          <button type="button" class="ui-button ui-button-icon-only btn-danger" (click)="deleteFile(file)"></button>
+        </div>
+      </ng-template>
+    </p-fileUpload>
+  </div>

@@ -17,7 +17,7 @@ export class RadioSampleComponent implements OnInit {
     this.sampleConfig.addOption('test all','all');
     this.sampleConfig.addOption('test 1','1');
     this.sampleConfig.addOption('test 2','2');
-    this.sampleConfig.addOption('test 3','3');
+    this.sampleConfig.addOptionDisable('test 3','3','true');
   }
 
 }

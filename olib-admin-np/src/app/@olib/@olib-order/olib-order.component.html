@@ -1,0 +1,18 @@
+<nb-list>
+    <nb-list-item class="table_th__row">
+        <div *ngFor="let col of cols | keyvalue" class="table_th bold" [style.width]="col.value.$width">
+            {{col.value.$title}}
+        </div>
+    </nb-list-item>
+</nb-list>
+<nb-list cdkDropList (cdkDropListDropped)="dropEvent($event)">
+    <nb-list-item class="table_td__row" *ngFor="let order of datas; let i = index;" cdkDrag>
+        <div *ngFor="let col of cols | keyvalue" class="table_th bold" [style.width]="col.value.$width">
+            <span *ngIf="option.$isTopButton && col.key ==='order'">
+                <i (click)="onTop(i)" class="fas fa-angle-double-up"></i>
+            </span>
+            <img *ngIf="col.value.$isImg" [src]="order[col.key]" style="width: 30%">
+            {{(!col.value.$isImg)?order[col.key]:''}}
+        </div>
+    </nb-list-item>
+</nb-list>

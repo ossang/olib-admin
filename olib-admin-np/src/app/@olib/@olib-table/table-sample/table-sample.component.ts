@@ -1,4 +1,4 @@
-import { Component }                from '@angular/core';
+import { Component, Input }                from '@angular/core';
 import { TableSampleService }       from './table-sample.service';
 import { 
   OlibTableColsModel, 
@@ -13,6 +13,12 @@ import {
 })
 export class TableSampleComponent extends OlibTableAbstract {
   
+  @Input("isCheckBox")
+  isCheckBox : boolean = false; 
+
+  @Input("isFilter")
+  isFilter : boolean = false;
+
   constructor(
     private service : TableSampleService
   ) { 
@@ -36,8 +42,8 @@ export class TableSampleComponent extends OlibTableAbstract {
   
   initializeOptions() {
     this.options = new OlibTableOptionModel();
-    this.options.$isCheckbox=true;
-    this.options.$isFilter=true;
+    this.options.$isCheckbox=this.isCheckBox;
+    this.options.$isFilter=this.isFilter;
     this.options.$isSort=true;
     this.options.$isPaginator=true;
     this.options.$isExport=false;

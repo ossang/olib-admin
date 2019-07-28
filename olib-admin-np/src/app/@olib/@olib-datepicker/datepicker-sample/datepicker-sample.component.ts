@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'olib-datepicker-sample',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatepickerSampleComponent implements OnInit {
 
-  selectedDate : Date[];
+  @Input("showTime")
+  showTime : string;
+
+  @Input("mode")
+  mode : any;
   
+  selectedDate : Date[];
+  dateValue : any;
+
   constructor() { }
 
   ngOnInit() {

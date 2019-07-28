@@ -4,14 +4,14 @@
   [value]="datas" 
   [paginator]="options.$isPaginator"
   [rows]="(options.$rows)?options.$rows:30" 
-  [rowsPerPageOptions]="(options.$rowsPerPage)?options.$rowsPerPage:[10,30,50,100]"
+  [rowsPerPageOptions]="(options.$rowsPerPage)?options.$rowsPerPage:null"
   sortMode="multiple">
 
-  <ng-template pTemplate="caption">
+  <ng-template *ngIf="options.$isExport" pTemplate="caption">
     <div class="ui-helper-clearfix">
-      <div class="col-md-6 text-left nopadding">
+      <!-- <div class="col-md-6 text-left nopadding">
         <span class="count"> Result : {{datas.length?datas.length:"0"}}</span>
-      </div>
+      </div> -->
       <div *ngIf="options.$isExport" class="col-md-6 text-right nopadding">
             <button type="button" pButton icon="fa-file-o" iconPos="right" label="All Data" (click)="dt.exportCSV()" >ExportCSV</button>
         </div>
@@ -39,22 +39,20 @@
     </tr>
   </ng-template>
 
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
+  <ng-content *ngIf="options.$isCustom"></ng-content>
+
+  <ng-template *ngIf="options.$isCustom === false" pTemplate="body" let-rowData let-columns="columns">
     <tr [pSelectableRow]="rowData">
       <td *ngIf="options.$isCheckbox">
         <p-tableCheckbox name="table_checkbox" [value]="rowData"></p-tableCheckbox>
       </td>
-      
-      <ng-content *ngIf="options.$isCustom"></ng-content>
-      <ng-container *ngIf="options.$isCustom === false" >
-        <td *ngFor="let col of columns">
-          <span [ngSwitch]="col.field">
-            <span *ngSwitchDefault>
-              {{(col.isDate)?(rowData[col.field] | date:'yyyy-MM-dd HH:mm:ss') : rowData[col.field] }}
-            </span>
+      <td *ngFor="let col of columns">
+        <span [ngSwitch]="col.field">
+          <span *ngSwitchDefault>
+            {{(col.isDate)?(rowData[col.field] | date:'yyyy-MM-dd HH:mm:ss') : rowData[col.field] }}
           </span>
-        </td>
-      </ng-container>
+        </span>
+      </td>
     </tr>
   </ng-template>
 </p-table>

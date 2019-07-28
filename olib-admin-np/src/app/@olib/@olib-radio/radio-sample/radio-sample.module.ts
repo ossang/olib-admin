@@ -11,6 +11,9 @@ import { OlibRadioModule }          from '../olib-radio.module';
     CommonModule,
     RadioSampleRoutingModule,
     OlibRadioModule
+  ],
+  exports:[
+    RadioSampleComponent
   ]
 })
 export class RadioSampleModule { }

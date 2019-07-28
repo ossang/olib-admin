@@ -1,0 +1,6 @@
+<nb-checkbox (change)="allSelcted()" [value]="allChecked">{{config.$allSelectedLabel}}</nb-checkbox>
+<ng-container *ngIf="config.$isVertical"><br></ng-container>
+<ng-container *ngFor="let checkBox of config.$checkboxList">
+  <nb-checkbox (change)="toggleCheckValue(checkBox.$key)" [value]="checkBoxMap.get(checkBox.$key)">{{checkBox.$label}}</nb-checkbox>
+  <ng-container *ngIf="config.$isVertical"><br></ng-container>
+</ng-container>

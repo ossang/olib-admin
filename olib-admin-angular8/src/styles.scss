@@ -1,0 +1,10 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all'; // or @import '~@nebular/auth/styles/theme/{theme-name}';
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global();
+};
+/* You can add global styles to this file, and also import other style files */

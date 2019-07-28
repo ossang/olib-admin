@@ -13,6 +13,9 @@ import { OlibDatepickerModule }             from '../olib-datepicker.module';
     FormsModule,
     DatepickerSampleRoutingModule,
     OlibDatepickerModule
+  ],
+  exports:[
+    DatepickerSampleComponent
   ]
 })
 export class DatepickerSampleModule { }

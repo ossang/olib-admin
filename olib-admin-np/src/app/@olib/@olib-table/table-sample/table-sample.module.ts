@@ -12,6 +12,7 @@ import { TableSampleRoutingModule } from './table-sample-routing.module';
     FormsModule,
     OlibTableModule,
     TableSampleRoutingModule
-  ]
+  ],
+  exports:[TableSampleComponent]
 })
 export class TableSampleModule { }

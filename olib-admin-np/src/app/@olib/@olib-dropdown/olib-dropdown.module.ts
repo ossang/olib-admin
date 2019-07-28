@@ -11,6 +11,8 @@ import { DropdownModule }         from 'primeng/dropdown';
     FormsModule,
     DropdownModule
   ],
-  exports:[OlibDropdownComponent]
+  exports:[
+    OlibDropdownComponent
+  ]
 })
 export class OlibDropdownModule { }

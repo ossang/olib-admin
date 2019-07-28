@@ -1,9 +1,14 @@
-<olib-datepicker (rangeDates)="rangeDates($event)" [showTime]="true" ></olib-datepicker>
+<olib-datepicker (rangeDates)="rangeDates($event)" [showTime]="showTime" [mode]="mode" ></olib-datepicker>
 <br>
-<ng-container *ngIf="selectedDate && selectedDate[0]">
+
+<ng-container *ngIf="mode !=='range'">
+  selected : {{selectedDate | date:'yyyy-MM-dd HH:mm:ss'}}
+</ng-container>
+
+<ng-container *ngIf="selectedDate && selectedDate[0] && mode ==='range'">
   startDate : {{selectedDate[0] | date:'yyyy-MM-dd HH:mm:ss'}}
 </ng-container>
 <br>
-<ng-container *ngIf="selectedDate && selectedDate[1]">
+<ng-container *ngIf="selectedDate && selectedDate[1] && mode ==='range'">
   endtDate : {{selectedDate[1] | date:'yyyy-MM-dd HH:mm:ss'}}
 </ng-container>

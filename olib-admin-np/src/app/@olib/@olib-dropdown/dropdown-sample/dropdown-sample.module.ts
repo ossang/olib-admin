@@ -11,6 +11,9 @@ import { OlibDropdownModule }                 from '../olib-dropdown.module';
     CommonModule,
     DropdownSampleRoutingModule,
     OlibDropdownModule
+  ],
+  exports:[
+    DropdownSampleComponent
   ]
 })
 export class DropdownSampleModule { }

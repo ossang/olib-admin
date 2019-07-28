@@ -12,6 +12,6 @@ export class TableSampleService {
   ) { }
 
   getSampleData(): Observable<any> {
-    return this.apiService.get('assets/sample/table/table.sample.json');
+    return this.apiService.get('assets/data/sample.table.data.json');
   }
 }

@@ -12,7 +12,7 @@ export class OlibDropdownComponent implements OnInit {
 
   @Output("selectedOptionValue") optionEmitter = new EventEmitter<OlibDropdown>();
   
-  selectedOptionValue : OlibDropdown;
+  @Input("value") selectedOptionValue : OlibDropdown;
 
   constructor() { }
 
