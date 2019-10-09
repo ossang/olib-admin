@@ -12,7 +12,7 @@ export class ChartBarSampleComponent {
   
   constructor() { 
     this.barChartConfig = new OlibChartBarConfig;
-    this.barChartConfig.$isVertical = true;
+    this.barChartConfig.$isVertical = false;
     this.barChartConfig.$categorys = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     this.barChartConfig.$values = [111, 222, 333, 444, 555, 666, 777];
   }
