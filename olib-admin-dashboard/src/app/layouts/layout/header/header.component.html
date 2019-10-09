@@ -1,0 +1,14 @@
+<div class="header-container" [class.left]="position === 'normal'" [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <a (click)="toggleSidebar()" href="#" class="navigation"><nb-icon icon="menu"></nb-icon></a>
+    <div class="logo" (click)="goToHome()">Olib-<span>Dashboard</span></div>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="medium" [class.right]="position === 'normal'" [class.left]="position === 'inverse'">
+    <!-- <nb-action>
+        <nb-user [nbContextMenu]="userMenu" name="olib"></nb-user>
+      </nb-action> -->
+  </nb-actions>
+</div>
