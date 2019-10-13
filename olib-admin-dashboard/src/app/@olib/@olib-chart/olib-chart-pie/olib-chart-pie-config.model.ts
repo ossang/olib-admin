@@ -2,8 +2,60 @@ export class OlibChartPieConfig{
     private title : string;
     private data : any;
 
+    private isDynamicData : boolean;
+    private updateTime : number;
+    private isLoading : boolean;
+
     constructor(){}
 
+    /**
+     * Getter $isLoading
+     * @return {boolean}
+     */
+	public get $isLoading(): boolean {
+		return this.isLoading;
+	}
+
+    /**
+     * Setter $isLoading
+     * @param {boolean} value
+     */
+	public set $isLoading(value: boolean) {
+		this.isLoading = value;
+	}
+
+
+    /**
+     * Getter $updateTime
+     * @return {number}
+     */
+	public get $updateTime(): number {
+		return this.updateTime;
+	}
+
+    /**
+     * Setter $updateTime
+     * @param {number} value
+     */
+	public set $updateTime(value: number) {
+		this.updateTime = value;
+	}
+
+    /**
+     * Getter $isDynamicData
+     * @return {boolean}
+     */
+	public get $isDynamicData(): boolean {
+		return this.isDynamicData;
+	}
+
+    /**
+     * Setter $isDynamicData
+     * @param {boolean} value
+     */
+	public set $isDynamicData(value: boolean) {
+		this.isDynamicData = value;
+	}
 
     /**
      * Getter $title

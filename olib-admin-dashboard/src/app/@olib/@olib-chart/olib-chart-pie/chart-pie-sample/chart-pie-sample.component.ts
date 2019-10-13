@@ -10,9 +10,6 @@ export class ChartPieSampleComponent {
 
   pieChartConfig : OlibChartPieConfig;
 
-  options: any = {};
-  themeSubscription: any;
-
   constructor() {
     this.pieChartConfig = new OlibChartPieConfig;
     this.pieChartConfig.$title = "sample";
@@ -23,5 +20,5 @@ export class ChartPieSampleComponent {
       { value: 444, name: 'Ddd' },
       { value: 555, name: 'Eee' },
     ];
-  }
+}
 }

@@ -3,7 +3,59 @@ export class OlibChartBarConfig{
     private categorys : any;
     private values : any;
 
+    private isDynamicData : boolean;
+    private updateTime : number;
+    private isLoading : boolean;
+
     constructor(){}
+
+    /**
+     * Getter $isDynamicData
+     * @return {boolean}
+     */
+	public get $isDynamicData(): boolean {
+		return this.isDynamicData;
+	}
+
+    /**
+     * Getter $updateTime
+     * @return {number}
+     */
+	public get $updateTime(): number {
+		return this.updateTime;
+	}
+
+    /**
+     * Getter $isLoading
+     * @return {boolean}
+     */
+	public get $isLoading(): boolean {
+		return this.isLoading;
+	}
+
+    /**
+     * Setter $isDynamicData
+     * @param {boolean} value
+     */
+	public set $isDynamicData(value: boolean) {
+		this.isDynamicData = value;
+	}
+
+    /**
+     * Setter $updateTime
+     * @param {number} value
+     */
+	public set $updateTime(value: number) {
+		this.updateTime = value;
+	}
+
+    /**
+     * Setter $isLoading
+     * @param {boolean} value
+     */
+	public set $isLoading(value: boolean) {
+		this.isLoading = value;
+	}
 
     /**
      * Getter $isVertical

@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnDestroy, Input } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { OlibChartBarConfig } from './olib-chart-bar-config.model';
+import { AfterViewInit, Component, OnDestroy, Input }   from '@angular/core';
+import { NbThemeService }                               from '@nebular/theme';
+import { OlibChartBarConfig }                           from './olib-chart-bar-config.model';
 
 @Component({
   selector: 'olib-chart-bar',
@@ -13,59 +13,31 @@ export class OlibChartBarComponent implements AfterViewInit, OnDestroy  {
   config : OlibChartBarConfig;
 
   options: any = {};
-  themeSubscription: any;
+  updateOptions : any = {};
+  category : any;
+  value : any;
+  echarts : any;
+
+  private themeSubscription: any;
+  private timer: any;
 
   constructor(private theme: NbThemeService) {}
 
   ngAfterViewInit() {
+   this.initializeOptions(); 
+  }
+
+  initializeOptions(){
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
-      const echarts: any = config.variables.echarts;
+      this.echarts = config.variables.echarts;
 
-      let category = [
-        {
-          type: 'category',
-          data: this.config.$categorys,
-          axisTick: {
-            alignWithLabel: true,
-          },
-          axisLine: {
-            lineStyle: {
-              color: echarts.axisLineColor,
-            },
-          },
-          axisLabel: {
-            textStyle: {
-              color: echarts.textColor,
-            },
-          },
-        }
-      ];
-
-      let value = [
-        {
-          type: 'value',
-          axisLine: {
-            lineStyle: {
-              color: echarts.axisLineColor,
-            },
-          },
-          splitLine: {
-            lineStyle: {
-              color: echarts.splitLineColor,
-            },
-          },
-          axisLabel: {
-            textStyle: {
-              color: echarts.textColor,
-            },
-          },
-        },
-      ];
+      this.initializeCategory();
+      this.initializeValueOptions();
 
       this.options = {
-        backgroundColor: echarts.bg,
+        backgroundColor: this.echarts.bg,
         color: [colors.primaryLight],
         tooltip: {
           trigger: 'axis',
@@ -79,11 +51,11 @@ export class OlibChartBarComponent implements AfterViewInit, OnDestroy  {
           bottom: '3%',
           containLabel: true,
         },
-        xAxis: (this.config.$isVertical)?category:value,
-        yAxis: (this.config.$isVertical)?value:category,
+        xAxis: (this.config.$isVertical)?this.category:this.value,
+        yAxis: (this.config.$isVertical)?this.value:this.category,
         series: [
           {
-            name: 'Score',
+            name: '',
             type: 'bar',
             barWidth: '60%',
             data: this.config.$values,
@@ -91,10 +63,76 @@ export class OlibChartBarComponent implements AfterViewInit, OnDestroy  {
         ],
       };
 
+      this.refreshData();
+
     });
+  }
+
+  initializeValueOptions(){
+    this.value = [
+      {
+        type: 'value',
+        axisLine: {
+          lineStyle: {
+            color: this.echarts.axisLineColor,
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: this.echarts.splitLineColor,
+          },
+        },
+        axisLabel: {
+          textStyle: {
+            color: this.echarts.textColor,
+          },
+        },
+      },
+    ];
+  }
+
+  initializeCategory(){
+    this.category = [
+      {
+        type: 'category',
+        data: this.config.$categorys,
+        axisTick: {
+          alignWithLabel: true,
+        },
+        axisLine: {
+          lineStyle: {
+            color: this.echarts.axisLineColor,
+          },
+        },
+        axisLabel: {
+          textStyle: {
+            color: this.echarts.textColor,
+          },
+        },
+      }
+    ];
+  }
+
+  updateData(){
+    this.updateOptions = {
+      series: [{
+        data: this.config.$values
+      }]
+    };
+  }
+
+  refreshData(){
+    if(this.config.$isDynamicData){
+      this.timer = setInterval(() => {
+        this.updateData();
+      }, this.config.$updateTime);
+    }
   }
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
+    if(this.config.$isDynamicData){
+      clearInterval(this.timer);
+    }
   }
 }

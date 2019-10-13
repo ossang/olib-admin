@@ -13,17 +13,24 @@ export class OlibChartPieComponent implements AfterViewInit, OnDestroy {
   config : OlibChartPieConfig;
 
   options: any = {};
-  themeSubscription: any;
+  updateOptions : any = {};
+
+  private themeSubscription: any;
+  private timer: any;
 
   constructor(private theme: NbThemeService) {
   }
 
   ngAfterViewInit() {
+    this.initializeOptions();
+  }
+
+  initializeOptions(){
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors = config.variables;
       const echarts: any = config.variables.echarts;
-
+      
       this.options = {
         backgroundColor: echarts.bg,
         color: [colors.warningLight, colors.infoLight, colors.dangerLight, colors.successLight, colors.primaryLight],
@@ -70,10 +77,36 @@ export class OlibChartPieComponent implements AfterViewInit, OnDestroy {
           },
         ],
       };
+      
+      this.updateData();
+      this.refreshData();
+
     });
+  }
+
+  updateData(){
+    this.updateOptions = {
+      legend: {
+        data: this.config.$names
+      },
+      series: [{
+        data: this.config.$data
+      }]
+    };
+  }
+
+  refreshData(){
+    if(this.config.$isDynamicData){
+      this.timer = setInterval(() => {
+        this.updateData();
+      }, this.config.$updateTime);
+    }
   }
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
+    if(this.config.$isDynamicData){
+      clearInterval(this.timer);
+    }
   }
 }
