@@ -2,6 +2,15 @@
 admin site template
 
 ---
+## olib-admin-dashboard
+<img width="1440" alt="olib-admin-dashboard" src="https://user-images.githubusercontent.com/8652687/66712307-b6129980-edd5-11e9-932c-680ddaad1118.png">
+
+- angular : 8.2.9
+- nebular/theme : 4.4.0
+- echarts : 4.3.0
+- ng2-smart-table : 1.5.0
+
+---
 ## olib-admin-angular8
 <img width="1440" alt="olib-admin-angular8" src="https://user-images.githubusercontent.com/8652687/62004711-7d164180-b163-11e9-9b0f-92b4acec542d.png">
 
