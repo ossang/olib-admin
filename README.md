@@ -3,7 +3,7 @@ admin site template
 
 ---
 ## olib-admin-dashboard
-<img width="660" alt="olib-admin-dashboard2" src="https://user-images.githubusercontent.com/8652687/72200302-386d3100-348b-11ea-895f-8dcfee637058.png">
+<img width="1440" alt="olib-admin-dashboard2" src="https://user-images.githubusercontent.com/8652687/72200302-386d3100-348b-11ea-895f-8dcfee637058.png">
 
 - angular : 8.2.9
 - nebular/theme : 4.4.0
