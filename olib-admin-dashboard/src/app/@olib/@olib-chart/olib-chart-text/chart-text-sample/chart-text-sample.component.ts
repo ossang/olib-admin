@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OlibChartTextConfig } from '../olib-chart-text-config.model';
 
 @Component({
@@ -8,13 +8,16 @@ import { OlibChartTextConfig } from '../olib-chart-text-config.model';
 })
 export class ChartTextSampleComponent implements OnInit {
 
+  @Input("status")
+  status : string = "info";
+
   config : OlibChartTextConfig;
 
   constructor() { }
 
   ngOnInit() {
     this.config = new OlibChartTextConfig;
-    this.config.$status = "info";
+    this.config.$status = this.status;
     this.config.$title = "sample title";
     this.config.$value = 99999;
   }

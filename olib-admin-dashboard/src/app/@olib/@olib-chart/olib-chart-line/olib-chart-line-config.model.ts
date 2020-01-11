@@ -2,16 +2,70 @@ import { OlibChartLineData } from './olib-chart-line-config-data.model';
 
 export class OlibChartLineConfig {
 
-    private categorys : any;
-    private datas : OlibChartLineData[];
+    private categorys : Array<any>;
+    private datas : Array<OlibChartLineData>;
+
+    private legend : Array<any>;
+
+    private isDynamicData : boolean;
+    private updateTime : number;
+
 
     constructor(){}
+
+    /**
+     * Getter $legend
+     * @return {Array<any>}
+     */
+	public get $legend(): Array<any> {
+		return this.legend;
+	}
+
+    /**
+     * Setter $legend
+     * @param {Array<any>} value
+     */
+	public set $legend(value: Array<any>) {
+		this.legend = value;
+	}
+
+    /**
+     * Getter $isDynamicData
+     * @return {boolean}
+     */
+	public get $isDynamicData(): boolean {
+		return this.isDynamicData;
+	}
+
+    /**
+     * Getter $updateTime
+     * @return {number}
+     */
+	public get $updateTime(): number {
+		return this.updateTime;
+	}
+
+    /**
+     * Setter $isDynamicData
+     * @param {boolean} value
+     */
+	public set $isDynamicData(value: boolean) {
+		this.isDynamicData = value;
+	}
+
+    /**
+     * Setter $updateTime
+     * @param {number} value
+     */
+	public set $updateTime(value: number) {
+		this.updateTime = value;
+	}
 
     /**
      * Getter $categorys
      * @return {any}
      */
-	public get $categorys(): any {
+	public get $categorys(): Array<any> {
 		return this.categorys;
 	}
 
@@ -19,7 +73,7 @@ export class OlibChartLineConfig {
      * Getter $datas
      * @return {OlibChartLineData[]}
      */
-	public get $datas(): OlibChartLineData[] {
+	public get $datas(): Array<OlibChartLineData> {
 		return this.datas;
 	}
 
@@ -27,7 +81,7 @@ export class OlibChartLineConfig {
      * Setter $categorys
      * @param {any} value
      */
-	public set $categorys(value: any) {
+	public set $categorys(value: Array<any>) {
 		this.categorys = value;
 	}
 
@@ -35,7 +89,7 @@ export class OlibChartLineConfig {
      * Setter $datas
      * @param {OlibChartLineData[]} value
      */
-	public set $datas(value: OlibChartLineData[]) {
+	public set $datas(value: Array<OlibChartLineData>) {
 		this.datas = value;
 	}
 

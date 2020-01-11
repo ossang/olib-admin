@@ -13,11 +13,18 @@ export class OlibChartLineComponent  implements AfterViewInit, OnDestroy {
   config : OlibChartLineConfig;
 
   options: any = {};
-  themeSubscription: any;
+  updateOptions : any = {};
+
+  private themeSubscription: any;
+  private timer: any;
 
   constructor(private theme: NbThemeService) {}
 
   ngAfterViewInit() {
+    this.initializeOptions();
+  }
+
+  initializeOptions(){
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
 
       const colors: any = config.variables;
@@ -25,14 +32,14 @@ export class OlibChartLineComponent  implements AfterViewInit, OnDestroy {
 
       this.options = {
         backgroundColor: echarts.bg,
-        color: [colors.danger, colors.primary, colors.info],
+        color: [colors.success, colors.warning, colors.info],
         tooltip: {
           trigger: 'item',
-          formatter: '{a} <br/>{b} : {c}',
+          formatter: '{a} <br/>{b} = {c}',
         },
         legend: {
           left: 'left',
-          data: this.config.$names,
+          data: (this.config)?this.config.$legend:[],
           textStyle: {
             color: echarts.textColor,
           },
@@ -40,7 +47,7 @@ export class OlibChartLineComponent  implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: this.config.$categorys,
+            data: (this.config)?this.config.$categorys:[],
             axisTick: {
               alignWithLabel: true,
             },
@@ -58,7 +65,8 @@ export class OlibChartLineComponent  implements AfterViewInit, OnDestroy {
         ],
         yAxis: [
           {
-            type: 'log',
+            type: 'value',
+            scale:true,
             axisLine: {
               lineStyle: {
                 color: echarts.axisLineColor,
@@ -82,12 +90,40 @@ export class OlibChartLineComponent  implements AfterViewInit, OnDestroy {
           bottom: '3%',
           containLabel: true,
         },
-        series: this.config.$datas
+        series: (this.config)?this.config.$datas:[]
       };
+
+      setTimeout(() => {
+        this.updateData();
+      }, 5000);
+      this.refreshData();
+
     });
+  }
+
+  updateData(){
+    this.updateOptions = {
+      xAxis: [
+        {
+          data: (this.config)?this.config.$categorys:[]
+        }
+      ],
+      series: (this.config)?this.config.$datas:[]
+    };
+  }
+
+  refreshData(){
+    if(this.config && this.config.$isDynamicData){
+      this.timer = setInterval(() => {
+        this.updateData();
+      }, this.config.$updateTime);
+    }
   }
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
+    if(this.config.$isDynamicData){
+      clearInterval(this.timer);
+    }
   }
 }
