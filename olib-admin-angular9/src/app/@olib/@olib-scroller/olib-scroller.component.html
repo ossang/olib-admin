@@ -1,0 +1,24 @@
+<table class="table table-bordered text-center table_point" style="margin-bottom: 0px;">
+  <colgroup>
+    <col *ngFor="let col of cols | keyvalue" [style.width]="col.value.$width">
+  </colgroup>
+  <thead>
+    <tr>
+      <th *ngFor="let col of cols | keyvalue">{{col.value.$title}}</th>
+    <tr>
+  </thead>
+</table>
+
+<cdk-virtual-scroll-viewport [itemSize]="option.$itemSize" class="data-viewport">
+  <ul class="type_ptable__td">
+    <li *cdkVirtualFor="let data of datas | async; templateCacheSize: 0">
+      <div class="container-fluid">
+        <div class="row">
+          <div *ngFor="let col of cols | keyvalue" [style.width]="col.value.$width">
+            {{data[col.key]}}
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</cdk-virtual-scroll-viewport>

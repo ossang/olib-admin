@@ -1,0 +1,58 @@
+<p-table #dt 
+  [(selection)]="selectedValues" 
+  [columns]="cols" 
+  [value]="datas" 
+  [paginator]="options.$isPaginator"
+  [rows]="(options.$rows)?options.$rows:30" 
+  [rowsPerPageOptions]="(options.$rowsPerPage)?options.$rowsPerPage:null"
+  sortMode="multiple">
+
+  <ng-template *ngIf="options.$isExport" pTemplate="caption">
+    <div class="ui-helper-clearfix">
+      <!-- <div class="col-md-6 text-left nopadding">
+        <span class="count"> Result : {{datas.length?datas.length:"0"}}</span>
+      </div> -->
+      <div *ngIf="options.$isExport" class="col-md-6 text-right nopadding">
+            <button type="button" pButton icon="fa-file-o" iconPos="right" label="All Data" (click)="dt.exportCSV()" >ExportCSV</button>
+        </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngIf="options.$isCheckbox" style="width:3em">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style.width]="col.width">
+        {{col.header}}
+        <p-sortIcon *ngIf="options.$isSort && col.isSort" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+
+    <tr *ngIf="options.$isFilter">
+      <th *ngIf="options.$isCheckbox" style="width:3em"></th>
+
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input pInputText *ngIf="col.isFilter" type="text" (input)="dt.filter($event.target.value, col.field,'equals')" style="width: 100%">
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-content *ngIf="options.$isCustom"></ng-content>
+
+  <ng-template *ngIf="options.$isCustom === false" pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngIf="options.$isCheckbox">
+        <p-tableCheckbox name="table_checkbox" [value]="rowData"></p-tableCheckbox>
+      </td>
+      <td *ngFor="let col of columns">
+        <span [ngSwitch]="col.field">
+          <span *ngSwitchDefault>
+            {{(col.isDate)?(rowData[col.field] | date:'yyyy-MM-dd HH:mm:ss') : rowData[col.field] }}
+          </span>
+        </span>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,20 @@
+<p-dialog 
+    [(visible)]="isShowPopup" 
+    [header]="header" 
+    [width]="width" 
+    [transitionOptions]="'0ms'" 
+    modal="true" 
+    positionTop="100"
+    [resizable]="false" 
+    [focusOnShow]="false" 
+    [blockScroll]="true"
+    [closeOnEscape]="false"
+    (onHide)="hidePopup()"
+    >
+
+    <ng-content></ng-content>
+    
+    <p-footer>
+        <button nbButton type="button" shape="rectangle" size="xsmall" class="btn_close" (click)="isShowPopup=false">닫기</button>
+    </p-footer>
+</p-dialog>

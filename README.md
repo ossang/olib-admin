@@ -11,11 +11,12 @@ admin site template
 - ng2-smart-table : 1.5.0
 
 ---
-## olib-admin-angular8
+## olib-admin-angular9
 <img width="1440" alt="olib-admin-angular8" src="https://user-images.githubusercontent.com/8652687/62004711-7d164180-b163-11e9-9b0f-92b4acec542d.png">
 
-- angular : 8.1.2
-- nebular/theme : 4.1.2
+- angular : 9.1.2
+- nebular/theme : 5.0.0
+- primeng : 9.0.5
 
 ---
 ## olib-admin-np
