@@ -1,0 +1,80 @@
+<div class="content-section introduction">
+    <div class="feature-intro">
+        <h1>Register</h1>
+    </div>
+</div>
+<div class="content-section implementation">
+    <div class="card">
+        <div class="p-field p-grid">
+            <label class="p-col-fixed" style="width:100px">Default</label>
+            <div class="p-col">
+                <span class="p-float-label">
+                    <input id="float-input" class="" type="text" pInputText />
+                    <label for="float-input">Default</label>
+                </span>
+            </div>
+            <label class="p-col-fixed" style="width:100px">Default2</label>
+            <div class="p-col">
+                <span class="p-float-label">
+                    <input id="float-input" class="" type="text" pInputText />
+                    <label for="float-input">Default2</label>
+                </span>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label class="p-col-fixed" style="width:100px">Password</label>
+            <div class="p-col">
+                <span class="p-float-label">
+                    <input id="float-input" class="" type="password" pInputText />
+                </span>
+            </div>
+            <label class="p-col-fixed" style="width:100px">Password</label>
+            <div class="p-col">
+                <span class="p-float-label">
+                    <input id="float-input" class="" type="password" pInputText />
+                </span>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label class="p-col-fixed" style="width:100px">Radio</label>
+            <div class="p-col">
+                <div class="p-field-radiobutton">
+                    <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+                    <label for="city1">Chicago</label>
+                    <p-radioButton class="p-ml-3" name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
+                    <label for="city2">Los Angeles</label>
+                    <p-radioButton class="p-ml-3" name="city" value="New York" [(ngModel)]="city" inputId="city3"></p-radioButton>
+                    <label for="city3">New York</label>
+                    <p-radioButton class="p-ml-3" name="city" value="San Francisco" [(ngModel)]="city" inputId="city4"></p-radioButton>
+                    <label for="city4">San Francisco</label>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label class="p-col-fixed" style="width:100px">Check box</label>
+            <div class="p-col">
+                <div class="p-field-checkbox">
+                    <p-checkbox name="group1" value="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+                    <label for="ny">New York</label>
+
+                    <p-checkbox class="p-ml-3" name="group1" value="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+                    <label for="sf">San Francisco</label>
+
+                    <p-checkbox class="p-ml-3" name="group1" value="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+                    <label for="la">Los Angeles</label>
+
+                    <p-checkbox class="p-ml-3" name="group1" value="Chicago" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                    <label for="ch">Chicago</label>
+                </div>
+            </div>
+        </div>
+        <div class="p-d-flex p-jc-center">
+            <div class="p-mr-2">
+                <button pButton pRipple type="button" label="OK"></button>
+            </div>
+            <div>
+                <button pButton pRipple type="button" label="CANCEL" class="p-button-danger"></button>
+            </div>
+        </div>
+    </div>
+</div>

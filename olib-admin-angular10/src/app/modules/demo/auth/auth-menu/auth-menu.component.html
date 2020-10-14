@@ -1,0 +1,20 @@
+<p-pickList 
+[source]="sourceProducts" 
+[target]="targetProducts"
+sourceHeader="Menus"
+targetHeader="Available" 
+dragdrop="true"
+[responsive]="true" 
+[sourceStyle]="{'height':'300px'}" 
+[targetStyle]="{'height':'300px'}" 
+[showSourceControls] = false
+[showTargetControls] = false
+
+>
+
+<ng-template let-menu pTemplate="item">
+    <div>
+        {{menu}}
+    </div>
+</ng-template>
+</p-pickList>

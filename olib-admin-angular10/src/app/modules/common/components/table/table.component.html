@@ -1,0 +1,76 @@
+<p-table #dt 
+  [(selection)]="options.selectedValues" 
+  [columns]="cols" 
+  [value]="datas" 
+  [paginator]="options?.isPaginator"
+  [rows]="(options.rows)?options.rows:30" 
+  [rowsPerPageOptions]="(options.rowsPerPage)?options.rowsPerPage:null"
+  [styleClass]="options?.styleClass"
+  sortMode="single"
+  [sortField] = "options?.sortField"
+  [sortOrder] = "options?.sortOrder"
+  >
+
+  <ng-template *ngIf="options.isShowTotal || options.isExport "  pTemplate="caption">
+    <div class="p-text-right">
+      <div *ngIf="options.isShowTotal">
+        <span class="count">{{options?.showTotalLabel}} {{datas.length?datas.length:"0"}}</span>
+      </div>
+      <div *ngIf="options.isExport">
+        <button type="button" pButton pRipple icon="pi pi-file-o" (click)="dt.exportCSV()" class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+        <button type="button" pButton pRipple icon="pi pi-filter" (click)="dt.exportCSV({selectionOnly:true})" class="p-button-info p-ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
+        </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngIf="options.isCheckbox" style="width:3em">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style.width]="col.width">
+        {{col.header}}
+        <p-sortIcon *ngIf="options.isSort && col.isSort" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+
+    <tr *ngIf="options?.isFilter">
+      <th *ngIf="options?.isCheckbox" style="width:3em"></th>
+
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input pInputText *ngIf="col.isFilter && !col.isDate" type="text" (input)="dt.filter($event.target.value, col.field,'contains')" style="width: 100%">
+        <p-calendar *ngIf="col.isFilter && col.isDate" (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'date', 'equals')" [showButtonBar]="true" styleClass="p-column-filter" placeholder="" [readonlyInput]="true" dateFormat="yy-mm-dd" [yearNavigator]="true" [monthNavigator]="true"yearRange="2020:2030"></p-calendar>
+
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngIf="options.isCheckbox">
+        <p-tableCheckbox name="table_checkbox" [value]="rowData"></p-tableCheckbox>
+      </td>
+      <td *ngFor="let col of columns">
+        <span *ngIf="col.parser;else elsespan">
+          {{col.parser(rowData[col.field])}}
+        </span>
+        <ng-template #elsespan>
+          <a *ngIf="col.link" [href]="col.link">
+            {{rowData[col.field]}}
+          </a>
+          <span *ngIf="!col.link">
+            {{(col.isDate)?(rowData[col.field] | date:'yyyy-MM-dd HH:mm:ss') : rowData[col.field] }}
+          </span>
+        </ng-template>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template  pTemplate="emptymessage" let-columns>
+    <tr>
+        <td class="p-text-center" [attr.colspan]="(options.isCheckbox)?columns.length+1:columns.length">
+            {{options.emptymessage}}
+        </td>
+    </tr>
+</ng-template>
+</p-table>

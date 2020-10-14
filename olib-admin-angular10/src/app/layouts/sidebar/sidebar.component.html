@@ -1,0 +1,36 @@
+<div class="layout-sidebar" [ngClass]="{'active': active}">
+    <div class="layout-menu">
+        <div class="menu-category">DEMO</div>
+        <div class="menu-items">
+            <a [routerLink]=" ['/demo/search']" (click)="selectMenu('DEMO,Search')" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Search</a>
+            <a [routerLink]=" ['/demo/register']" (click)="selectMenu('DEMO,Register')" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Register</a>
+            <a [routerLink]=" ['/demo/login']" (click)="selectMenu('DEMO,Login')" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Login</a>
+            <a [routerLink]=" ['/demo/auth']" (click)="selectMenu('DEMO,Auth')" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Auth</a>
+            <a [routerLink]=" ['/demo/table']" (click)="selectMenu('DEMO,Table')" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Table</a>
+        </div>
+        <!-- <div class="menu-category">Cateogry 2</div>
+        <div class="menu-items">
+            <a [routerLink]=" ['/button']" routerLinkActive="router-link-exact-active">Button</a>
+            <a [routerLink]=" ['/splitbutton']" routerLinkActive="router-link-exact-active">SplitButton</a>
+        </div>
+        <div class="menu-category">Data</div>
+        <div class="menu-items">
+            <div>
+                <a tabindex="0" (click)="toggleSubmenu($event, '/tree')">Tree</a>
+                <div [@submenu]="isSubmenuActive('/tree') ? 'visible': 'hidden'">
+                    <ul>
+                        <li><a [routerLink]=" ['/tree']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Documentation</a></li>
+                        <li><a [routerLink]=" ['/tree/templating']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Templating</a></li>
+                        <li><a [routerLink]=" ['/tree/selection']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Selection</a></li>
+                        <li><a [routerLink]=" ['/tree/filter']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Filter</a></li>
+                        <li><a [routerLink]=" ['/tree/lazy']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Lazy</a></li>
+                        <li><a [routerLink]=" ['/tree/scroll']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Scroll</a></li>
+                        <li><a [routerLink]=" ['/tree/contextmenu']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">ContextMenu</a></li>
+                        <li><a [routerLink]=" ['/tree/dragdrop']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">DragDrop</a></li>
+                        <li><a [routerLink]=" ['/tree/horizontal']" routerLinkActive="router-link-exact-active" [routerLinkActiveOptions]="{exact:true}">Horizontal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

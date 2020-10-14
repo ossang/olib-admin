@@ -1,0 +1,12 @@
+<div class="layout-wrapper" [ngClass]="{'p-input-filled': config.inputStyle === 'filled', 'p-ripple-disabled': !config.ripple}">
+
+    <olib-header (menuButtonClick)="onMenuButtonClick()"></olib-header>
+    <olib-sidebar [active]="menuActive"></olib-sidebar>
+    <div class="layout-mask" [ngClass]="{'layout-mask-active': menuActive}" (click)="onMaskClick()"></div>
+
+    <div class="layout-content">
+        <p-breadcrumb [model]="breadCrumbConfig.items" [home]="home"></p-breadcrumb>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
