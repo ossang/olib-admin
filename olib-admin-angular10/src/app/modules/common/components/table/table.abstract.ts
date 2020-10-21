@@ -24,5 +24,16 @@ export abstract class TableAbstract implements OnInit{
         this.initializeDatas();
         this.initializeOptions();
     }
+    
+    setTableDatas(data){
+        this.resetTable();
+        if(data){
+            this.datas = data;
+        }
+    }
 
+    resetTable(){
+        this.datas = [];
+        this.selectedValues = [];
+    }
 }

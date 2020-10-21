@@ -7,6 +7,7 @@ export class TableCol{
     isSort : boolean;
 	isDate: boolean;
     parser : any;
+    linkParamField : any;
 
     constructor(
 		field:string, 
@@ -16,6 +17,7 @@ export class TableCol{
 		isSort:boolean,
         isDate:boolean,
         link?:string,
+        linkParamField?:any,
         parser?:any){
 
         this.field = field;
@@ -26,5 +28,6 @@ export class TableCol{
         this.isDate = isDate;
         this.link = link;
         this.parser = parser;
+        this.linkParamField = linkParamField;
     }
 }

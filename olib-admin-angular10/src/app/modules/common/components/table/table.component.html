@@ -56,7 +56,7 @@
           {{col.parser(rowData[col.field])}}
         </span>
         <ng-template #elsespan>
-          <a *ngIf="col.link" [href]="col.link">
+          <a *ngIf="col.link" [href]="col.link+rowData[col.linkParamField]">
             {{rowData[col.field]}}
           </a>
           <span *ngIf="!col.link">
